@@ -10,17 +10,19 @@
     body {
         background-color:#d5f4e6;
       }
+      
+
     </style>
-    <title> lets Go To talk </title>
+    <title> lets Enjoy </title>
   </head>
 
   <body style="text-align:center">
-    <h1>talk about what u feel today</h1>
-    <button onclick="myFunction()"> PopUp Alert </button>
+    <h1>Talk about your feeling today</h1>
+    <button class="active" onclick="myFunction()"> Click To enjoy  </button>
     <p id="mypara"></p>
 
-    <div id="Feelings">
-    </div>
+    <div id="Feelings"></div>
+    <div id="RelpyImg" title="RelpyImg">
 
     <script>
     function myFunction() {
@@ -29,12 +31,12 @@
 
     function myFunction() {
       var txt;
-      var person = prompt("Please enter your name:", "Aya");
+      var person = prompt("Please enter your name:");
       if (person == null || person == "") {
-        txt = "User cancelled the prompt.";
+        txt = "Try again !!";
       }
       else {
-        txt = "Hello " + person + "! How are you today?";
+        txt = "Hello! " + person + " .. How do you feel today?";
       }
       document.getElementById("mypara").innerHTML = txt;
     }
@@ -96,10 +98,10 @@
       $("#feel8").addClass("warm");
 
       // Chlid3 elements
-    var pathatic = $("<h3>Pathatic</h3>");
-      $('.child3').append(pathatic);
-      pathatic.attr('id', 'feel9');
-      $("#feel9").addClass("pathatic");
+    var pathetic = $("<h3>Pathetic</h3>");
+      $('.child3').append(pathetic);
+      pathetic.attr('id', 'feel9');
+      $("#feel9").addClass("pathetic");
 
     var crushed = $("<h3>Crushed</h3>");
       $('.child3').append(crushed);
@@ -115,6 +117,93 @@
       $('.child3').append(tender);
       tender.attr('id', 'feel12');
       $("#feel12").addClass("tender");
+
+
+  // Onclick feeling functions
+
+
+  var feelings = [
+    { name: "Happy",
+     img: "./img/happy.jpg",
+     link: "https://www.youtube.com/watch?v=cmCDqX3ngfA",
+     state: "Happiness is a direction, not a place!"
+   },
+
+    { name: "sad",
+      img: "./img/sad.jpg",
+      link: "https://www.youtube.com/watch?v=wlxKbsjE7pk",
+      state: "All-day is not the same, you need to wait and be patient for the good things to happen"
+    },
+
+   { name: "Angry",
+     img: "./img/angry.jpg",
+     link: "https://www.youtube.com/watch?v=zCxuf2w94RE",
+     state: "The best fighter is never angry."
+   },
+
+   { name: "Free",
+    img: "./img/free.jpg",
+    link: "https://www.youtube.com/watch?v=10MqDLLxE1A",
+    state: "He only earns his freedom and his life who takes them every day by storm. Johann Wolfgang von Goethe"
+  },
+
+   { name: "Cheerful",
+   img: "./img/cheerful.jpg",
+   link: "https://www.youtube.com/watch?v=X6szpQUAbeI",
+   state: "Never hurry. Take plenty of exercise. Always be cheerful"
+  },
+
+   { name: "Upset",
+    img: "./img/upset.jpg",
+    link: "https://www.youtube.com/watch?v=CZUhmGaG-Hg",
+    state: "no expectations, no disappointments!"
+  },
+
+   { name: "Lost",
+     img: "./img/lost.jpg",
+     link: "https://www.youtube.com/watch?v=XDtx71stdUE",
+     state: "All that is gold does not glitter"
+   },
+
+   { name: "Warm",
+     img: "./img/warm.jpg",
+     link: "https://www.youtube.com/watch?v=AqJx8I4PlKQ",
+     state: "Music brings a warm glow to my vision, thawing mind and muscle from their endless wintering"},
+
+   { name: "Pathetic",
+     img: "./img/pathetic.jpg",
+     link: "https://www.youtube.com/watch?v=m3BRf3WKEoI",
+     state: "Whatever you are, be a good one."
+   },
+
+   { name: "Crushed",
+     img: "./img/crushed.webp",
+     link: "https://www.youtube.com/watch?v=NIWEF_uey-4",
+     state: "Write it. Shoot it. Publish it. Crochet it, sauté it, whatever. MAKE"
+   },
+
+   { name: "Inspired",
+     img: "./img/inspired.jpg",
+     link: "https://www.youtube.com/watch?v=Uj5MMLROMhM",
+     state: "Don't limit yourself"
+   },
+
+   { name: "Tender",
+     img: "./img/tender.jpg",
+     link: "https://www.youtube.com/watch?v=P_OK_H8F2g0",
+     state: "All our dreams can come true, if we have the courage to pursue them"
+   },
+  ]
+
+  $( function() {
+    $ ( "h3" ).on("click", function(){
+      for (var i = 0; i < feelings.length; i++){
+        open(feelings[i].img)
+
+      }
+    })
+  })
+
 
    $(function(){
       $(".child1").css({
@@ -141,7 +230,20 @@
       });
       });
 
-
+// main div design
+  $(function(){
+    $("#Feelings").css({
+      "display": "flex",
+      "flex-direction": "row",
+      "justify-content": "space-around",
+      "width": "auto",
+      "align-items": "center",
+      "padding": "5px",
+      "border": "solid 2px",
+      "border-radius": "8px",
+      "box-shadow": "2px 2px"
+  });
+  });
 
   </script>
 </body>
