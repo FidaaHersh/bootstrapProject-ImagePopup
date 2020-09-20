@@ -1,2 +1,43 @@
+<!DOCTYPE html>
 <html>
+  <head>  
+    <title> lets Go To talk </title>
+    <link href="styl.css" rel="stylesheet" type="text/css" />
+    <script src="index.js"></script>
+  </head>
+  <body style="text-align:center">
+  	
+  	<style> 
+
+    body {
+      background-color:#d5f4e6;
+    }
+  	</style>
+    <h1>talk about what u feel today</h1>
+    <button 
+      onclick="myFunction()">
+        PopUp Alert
+    </button>
+
+<script>
+	
+function myFunction() {
+    alert("I am an alert box!");
+}
+</script>
+<p id="mypara"></p>
+
+<script>
+function myFunction() {
+    var txt;
+    var person = prompt("Please enter your name:", "Aya");
+    if (person == null || person == "") {
+        txt = "User cancelled the prompt.";
+    } else {
+        txt = "Hello " + person + "! How are you today?";
+    }
+    document.getElementById("mypara").innerHTML = txt;
+}
+</script>
+  </body>
 </html>
