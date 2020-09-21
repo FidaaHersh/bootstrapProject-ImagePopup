@@ -11,31 +11,38 @@
   <style>
       .popUp {
       display: none;
-      position: fixed;
-      bottom: 0;
-      right: 15px;
-      border: 3px solid #f1f1f1;
-      z-index: 9;
+      width: 100%;
     }
 
     .popUp-container {
-      max-width: 300px;
+      margin: auto;
+      width: 50%;
+      height: 80vh;
       padding: 10px;
-      background-color: #855;
+      background-color: #dea9d79c;
     }
 
     .popUp-container .#feel-link {
-      background-color: #844;
-      color: white;
-      padding: 16px 20px;
-      border: none;
-      width: 100%;
-      margin-bottom:10px;
-      opacity: 0.8;
+
+        background: #ffccccb8;
+        border-radius: 20px;
+        box-shadow: 2px 2px grey;
+        color: #7c6479;
+        padding: 16px 20px;
+        width: 120%;
+        margin-bottom:10px;
+        opacity: 0.8;
     }
+
     .popUp-container #close {
       background-color: #833;
+      background: #ffccccb8;
+      border-radius: 20px;
+      box-shadow: 2px 2px grey;
+      color: #7c6479;
+      width: 100px;
     }
+
     .mainDiv {
       background: linear-gradient(45deg, #FFCCCC, #CCFFFF, rgb(200, 205, 155));
       border-radius: 8px;
@@ -45,6 +52,7 @@
       margin: auto;
       padding: 15px;
     }
+
     body {
       background-color: #e8eae9;
       color: #7c6479;
@@ -71,14 +79,17 @@
       <div class="popUp" id="popUp">
         <form class="popUp-container" action="index.html">
           <p id="feel-state"></p>
-          <img id="feel-img">
-          <button type="button" id="feel-link" onClick="openLink();">listen to music</button>
-          <button type="button" id="close" onClick="closePopup();">close</button>
+          <img id="feel-img" class="feel-img">
+          <button type="button" id="feel-link" onClick="openLink();">Listen To Music</button>
+          <button type="button" id="close" onClick="closePopup();">Close</button>
         </form>
       </div>
     </div>
 
     <script>
+
+
+     //dialog
     function myFunction() {
       alert("I am an alert box!");
     }
@@ -152,7 +163,7 @@
       $("#feel8").addClass("warm");
 
       // Chlid3 elements
-    var pathetic = $("<h3>Pathetic</h3>");
+    var pathetic = $("<h3 onClick='x(pathetic)'>Pathetic</h3>");
       $('.child3').append(pathetic);
       pathetic.attr('id', 'feel9');
       $("#feel9").addClass("pathetic");
@@ -174,8 +185,6 @@
 
 
   // Onclick feeling functions
-
-
   var feelings = [
     { name: "Happy",
      img: "./img/happy.jpg",
@@ -249,13 +258,10 @@
    },
   ]
 
+  // for displaying the popUp
   $( function() {
     $ ( "h3" ).on("click", function (){
       document.getElementById("popUp").style.display = "block";
-      // for (var i = 0; i < feelings.length; i++){
-      //   // open(feelings[i].img)
-      //
-      // }
     });
   });
 
@@ -265,22 +271,40 @@
     });
   });
 
-  $( function() {
-    $ ( "h3" ).on("click", function (){
-      function openLink(){
-        for (var i = 0; i < feelings.length; i++){
-          if ( feelings[i].name === $("h3").text()){
-          open(feelings[i].img)
-        }
-        }
-      }
+// to return the img, state, link
+  function x(feel){
+    // var feeling = $("h3").attr("id")
+      console.log ($(feel).class)
+  }
 
 
+    // $ ( "h3" ).on("click", function (){
+    //   var feeling = $("h3").attr("id")
+    //   console.log (feeling)
+       // $ ("#feel-link").on("click", function openLink(){
+       //   var linkVal = feelings[i].link;
+       //   for (var i = 0; i < feelings.length; i++){
+       //     if ( feelings[i].name === $("h3").text()){
+       //       window.open(feelings[i].link, "_self")
+       //     }
+     // })
+ //       })
+ // });
+
+// var music = document.getElementById("feel-link");
+// var h3Text = $("h3").text()
+// var name = feelings[i].name;
+// music.onClick= function {
+//   if ( h3Text === name ) {
+//     window.open(feelings[i].link, "_blank");
+//   }
+// }
+
+// $("#popUp").append(feelings[i].link)
       // $ ( "#feel-link" ).on("click", function (){
       // for (var i = 0; i < feelings.length; i++){
         // open(feelings[i].link)}
-    });
-  });
+
   // function each(coll, f) {
   //   if (Array.isArray(coll)) {
   //      for (var i = 0; i < coll.length; i++) {
