@@ -4,37 +4,104 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-    <script src="script.js"></script>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
+
+  <link rel="stylesheet" href="./styles.css" type="text/css">
+  <title> lets Enjoy </title>
   <style>
+      .popUp {
+      display: none;
+      width: 100%;
+    }
+
+    .popUp-container {
+      margin: auto;
+      width: 50%;
+      height: 80vh;
+      padding: 10px;
+      background-color: #dea9d79c;
+    }
+
+    .popUp-container .#feel-link {
+
+        background: #ffccccb8;
+        border-radius: 20px;
+        box-shadow: 2px 2px grey;
+        color: #7c6479;
+        padding: 16px 20px;
+        width: 120%;
+        margin-bottom:10px;
+        opacity: 0.8;
+    }
+
+    .popUp-container #close {
+      background-color: #833;
+      background: #ffccccb8;
+      border-radius: 20px;
+      box-shadow: 2px 2px grey;
+      color: #7c6479;
+      width: 100px;
+    }
+
+    .mainDiv {
+      background: linear-gradient(45deg, #FFCCCC, #CCFFFF, rgb(200, 205, 155));
+      border-radius: 8px;
+      box-shadow: 8px 8px 8px 8px grey;
+      width: 900px;
+      height: 93vh;
+      margin: auto;
+      padding: 15px;
+    }
+
     body {
-        background-color:#d5f4e6;
-      }
+      background-color: #e8eae9;
+      color: #7c6479;
+    }
+    button {
+      background: #ffccccb8;
+      border-radius: 20px;
+      box-shadow: 2px 2px grey;
+      color: #7c6479;
+    }
+
     </style>
-    <title> lets Go To talk </title>
+
   </head>
 
   <body style="text-align:center">
-    <h1>talk about what u feel today</h1>
-    <button onclick="myFunction()"> PopUp Alert </button>
-    <p id="mypara"></p>
+    <div class="mainDiv">
+      <h1>Talk about your feeling today</h1>
+      <button class="active" onclick="myFunction()"> Click To enjoy  </button>
+      <p id="mypara"></p>
 
-    <div id="Feelings">
+      <div id="Feelings"></div>
+
+      <div class="popUp" id="popUp">
+        <form class="popUp-container" action="index.html">
+          <p id="feel-state"></p>
+          <img id="feel-img" class="feel-img">
+          <button type="button" id="feel-link" onClick="openLink();">Listen To Music</button>
+          <button type="button" id="close" onClick="closePopup();">Close</button>
+        </form>
+      </div>
     </div>
 
     <script>
+
+
+     //dialog
     function myFunction() {
       alert("I am an alert box!");
     }
 
     function myFunction() {
       var txt;
-      var person = prompt("Please enter your name:", "Aya");
+      var person = prompt("Please enter your name:");
       if (person == null || person == "") {
-        txt = "User cancelled the prompt.";
+        txt = "Try again !!";
       }
       else {
-        txt = "Hello " + person + "! How are you today?";
+        txt = "Hello! " + person + " .. How do you feel today?";
       }
       document.getElementById("mypara").innerHTML = txt;
     }
@@ -96,10 +163,10 @@
       $("#feel8").addClass("warm");
 
       // Chlid3 elements
-    var pathatic = $("<h3>Pathatic</h3>");
-      $('.child3').append(pathatic);
-      pathatic.attr('id', 'feel9');
-      $("#feel9").addClass("pathatic");
+    var pathetic = $("<h3 onClick='x(pathetic)'>Pathetic</h3>");
+      $('.child3').append(pathetic);
+      pathetic.attr('id', 'feel9');
+      $("#feel9").addClass("pathetic");
 
     var crushed = $("<h3>Crushed</h3>");
       $('.child3').append(crushed);
@@ -116,32 +183,201 @@
       tender.attr('id', 'feel12');
       $("#feel12").addClass("tender");
 
+
+  // Onclick feeling functions
+  var feelings = [
+    { name: "Happy",
+     img: "./img/happy.jpg",
+     link: "https://www.youtube.com/watch?v=cmCDqX3ngfA",
+     state: "Happiness is a direction, not a place!"
+   },
+
+    { name: "sad",
+      img: "./img/sad.jpg",
+      link: "https://www.youtube.com/watch?v=wlxKbsjE7pk",
+      state: "All-day is not the same, you need to wait and be patient for the good things to happen"
+    },
+
+   { name: "Angry",
+     img: "./img/angry.jpg",
+     link: "https://www.youtube.com/watch?v=zCxuf2w94RE",
+     state: "The best fighter is never angry."
+   },
+
+   { name: "Free",
+    img: "./img/free.jpg",
+    link: "https://www.youtube.com/watch?v=10MqDLLxE1A",
+    state: "He only earns his freedom and his life who takes them every day by storm. Johann Wolfgang von Goethe"
+  },
+
+   { name: "Cheerful",
+   img: "./img/cheerful.jpg",
+   link: "https://www.youtube.com/watch?v=X6szpQUAbeI",
+   state: "Never hurry. Take plenty of exercise. Always be cheerful"
+  },
+
+   { name: "Upset",
+    img: "./img/upset.jpg",
+    link: "https://www.youtube.com/watch?v=CZUhmGaG-Hg",
+    state: "no expectations, no disappointments!"
+  },
+
+   { name: "Lost",
+     img: "./img/lost.jpg",
+     link: "https://www.youtube.com/watch?v=XDtx71stdUE",
+     state: "All that is gold does not glitter"
+   },
+
+   { name: "Warm",
+     img: "./img/warm.jpg",
+     link: "https://www.youtube.com/watch?v=AqJx8I4PlKQ",
+     state: "Music brings a warm glow to my vision, thawing mind and muscle from their endless wintering"},
+
+   { name: "Pathetic",
+     img: "./img/pathetic.jpg",
+     link: "https://www.youtube.com/watch?v=m3BRf3WKEoI",
+     state: "Whatever you are, be a good one."
+   },
+
+   { name: "Crushed",
+     img: "./img/crushed.webp",
+     link: "https://www.youtube.com/watch?v=NIWEF_uey-4",
+     state: "Write it. Shoot it. Publish it. Crochet it, sauté it, whatever. MAKE"
+   },
+
+   { name: "Inspired",
+     img: "./img/inspired.jpg",
+     link: "https://www.youtube.com/watch?v=Uj5MMLROMhM",
+     state: "Don't limit yourself"
+   },
+
+   { name: "Tender",
+     img: "./img/tender.jpg",
+     link: "https://www.youtube.com/watch?v=P_OK_H8F2g0",
+     state: "All our dreams can come true, if we have the courage to pursue them"
+   },
+  ]
+
+  // for displaying the popUp
+  $( function() {
+    $ ( "h3" ).on("click", function (){
+      document.getElementById("popUp").style.display = "block";
+    });
+  });
+
+  $( function() {
+    $ ( "#close" ).on("click", function (){
+      document.getElementById("popUp").style.display = "none";
+    });
+  });
+
+// to return the img, state, link
+  // function x(feel){
+  //   // var feeling =   $('h3').attr('id').split(' ')
+  //     console.log ($(feel).class)
+  //
+  // }
+  var feeling =   $('h3').attr('id').split(' ')
+      console.log (feeling)
+
+    // $ ( "h3" ).on("click", function (){
+    //   var feeling = $("h3").attr("id")
+    //   console.log (feeling)
+       // $ ("#feel-link").on("click", function openLink(){
+       //   var linkVal = feelings[i].link;
+       //   for (var i = 0; i < feelings.length; i++){
+       //     if ( feelings[i].name === $("h3").text()){
+       //       window.open(feelings[i].link, "_self")
+       //     }
+     // })
+ //       })
+ // });
+
+// var music = document.getElementById("feel-link");
+// var h3Text = $("h3").text()
+// var name = feelings[i].name;
+// music.onClick= function {
+//   if ( h3Text === name ) {
+//     window.open(feelings[i].link, "_blank");
+//   }
+// }
+
+// $("#popUp").append(feelings[i].link)
+      // $ ( "#feel-link" ).on("click", function (){
+      // for (var i = 0; i < feelings.length; i++){
+        // open(feelings[i].link)}
+
+  // function each(coll, f) {
+  //   if (Array.isArray(coll)) {
+  //      for (var i = 0; i < coll.length; i++) {
+  //        f(coll[i], i);
+  //      }
+  //      else {
+  //        for (var key in coll) {
+  //          f(coll[key], key);
+  //        }
+  //      }
+  //    }
+
+
+
+
+// design section
+
+
    $(function(){
       $(".child1").css({
+        "display": "flex",
+        "flex-direction": "column",
+        "justify-content": "space-around",
         "padding": "5px",
         "margin": "5px",
         "border-radius": "8px",
-        "color": "blue"
+        "width": "200px",
+        "border": "2px solid grey",
+        "height": "60vh",
     });
     });
+
     $(function(){
        $(".child2").css({
+         "display": "flex",
+         "flex-direction": "column",
+         "justify-content": "space-around",
          "padding": "5px",
          "margin": "5px",
          "border-radius": "8px",
-         "color": "black"
+         "height": "60vh",
+         "width": "200px",
+         "border": "2px solid grey"
      });
      });
+
      $(function(){
         $(".child3").css({
+          "display": "flex",
+          "flex-direction": "column",
+          "justify-content": "space-around",
           "padding": "5px",
           "margin": "5px",
           "border-radius": "8px",
-          "color": "red"
+          "height": "60vh",
+          "width": "200px",
+          "border": "2px solid grey"
       });
       });
 
-
+// main div design
+  $(function(){
+    $("#Feelings").css({
+      "display": "flex",
+      "flex-direction": "row",
+      "justify-content": "space-around",
+      "width": "auto",
+      "align-items": "center",
+      "padding": "5px",
+  });
+  });
 
   </script>
 </body>
